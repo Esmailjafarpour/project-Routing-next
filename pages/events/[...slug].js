@@ -25,14 +25,14 @@ function filteredEventsPage() {
    ){
 
       return (
-         <>
+         <div className="center">
             <p>Invalid filter.Please adjust your values!</p>
             <div>
                <Button link='/events'>Show All Events</Button>
             </div>
-         </>
+         </div>
       )
-      
+
    }
 
    const filteredEvents = getFilteredEvents({
@@ -43,12 +43,12 @@ function filteredEventsPage() {
    if (!filteredEvents || filteredEvents.length === 0) {
 
       return (
-         <>
+         <div className="center">
             <p>No Event found for the chosen filter!</p>
-            <div>
+            <div >
                <Button link='/events'>Show All Events</Button>
             </div>
-         </>
+         </div>
       )
 
    }

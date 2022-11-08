@@ -4,7 +4,7 @@ const DUMMY_EVENTS = [
       title: 'Programming for everyone',
       description:
         'Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.',
-      location: 'Some street 25, 12345 San Some whereo',
+      location: 'Some street 25, 12345 San Some where',
       date: '2021-05-12',
       image: 'images/coding-event.jpg',
       isFeatured: false,
@@ -26,6 +26,16 @@ const DUMMY_EVENTS = [
         'You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.',
       location: 'My Street 12, 10115 Broke City',
       date: '2022-04-10',
+      image: 'images/extrovert-event.jpg',
+      isFeatured: true,
+    },
+    {
+      id: 'e4',
+      title: 'Networking for extroverts',
+      description:
+        'You probably need no help with networking in general',
+      location: 'My Street 15, 55425 shiraz City',
+      date: '2022-05-02',
       image: 'images/extrovert-event.jpg',
       isFeatured: true,
     },

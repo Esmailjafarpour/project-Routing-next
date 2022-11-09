@@ -36,7 +36,17 @@ const DUMMY_EVENTS = [
         'You probably need no help with networking in general',
       location: 'My Street 15, 55425 shiraz City',
       date: '2022-05-02',
-      image: 'images/extrovert-event.jpg',
+      image: 'images/eng.jpg',
+      isFeatured: true,
+    },
+    {
+      id: 'e5',
+      title: 'Networking for extroverts',
+      description:
+        'You probably need no help with networking in general',
+      location: 'My Street 15, 55425 esfahan City',
+      date: '2022-07-02',
+      image: 'images/school.jpg',
       isFeatured: true,
     },
   ];

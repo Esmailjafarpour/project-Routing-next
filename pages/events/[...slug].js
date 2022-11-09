@@ -1,4 +1,5 @@
 import { Fragment,useState,useEffect } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { getFilteredEvents } from '../../dummy-data';
 // import { getFilteredEvents } from '../../helpers/api-util';
@@ -103,9 +104,10 @@ import ErrorAlert from '../../components/ui/error-alert';
 //     );
 //   }
 
-//   const date = new Date(props.date.numYear, props.date.numMonth - 1)
+//   const date = new Date(props.date.year, props.date.month - 1)
 //   return (
 //     <Fragment>
+//       {props.page}
 //       <ResultsTitle date={date} />
 //       <EventList items={filteredEvents} />
 //     </Fragment>
@@ -124,6 +126,13 @@ import ErrorAlert from '../../components/ui/error-alert';
 
 //   const numYear = +filteredYear;
 //   const numMonth = +filteredMonth;
+
+//   // const pageHeadData = (
+//   //   <Head>
+//   //     <title>All Events company of programmers In The {`${numYear}/${numMonth}`}</title>
+//   //     <meta name="description" content={`All Events ${numYear}/${numMonth}`}/>
+//   //   </Head>
+//   // )
 
 //   if (
 //     isNaN(numYear) ||
@@ -159,7 +168,8 @@ import ErrorAlert from '../../components/ui/error-alert';
 //       date : {
 //         year: numYear,
 //         month: numMonth,
-//       }
+//       },
+//       // page : pageHeadData
 //     }
 //   }
 // }
@@ -182,7 +192,7 @@ import ErrorAlert from '../../components/ui/error-alert';
 // //******clientServerSiteRendering*******// //
       // //******solotion-three******// //
 
-function FilteredEventsPage(props) {
+ function FilteredEventsPage(props) {
     const [loadedEvents ,setLoadedEvents] = useState([])
     const router = useRouter();
     const filterData = router.query.slug
@@ -229,9 +239,19 @@ function FilteredEventsPage(props) {
         </Fragment>
       );
     }
+
+    const pageHeadData = (
+      <Head>
+        <title>All Events company of programmers In The {`${numYear}/${numMonth}`}</title>
+        <meta name="description" content={`All Events ${numYear}/${numMonth}`}/>
+      </Head>
+    )
   
     if (!loadedEvents) {
-      return <p className='center'>Loading...</p>;
+      return <Fragment>
+        {pageHeadData}
+        <p className='center'>Loading...</p>
+      </Fragment> ;
     }
     
     const filteredEvents = loadedEvents.filter((event) => {
@@ -242,6 +262,7 @@ function FilteredEventsPage(props) {
     if (!filteredEvents || filteredEvents.length === 0) {
       return (
         <Fragment>
+          {pageHeadData}
           <ErrorAlert>
             <p>No events found for the chosen filter!</p>
           </ErrorAlert>
@@ -256,6 +277,7 @@ function FilteredEventsPage(props) {
   
     return (
          <Fragment>
+            {pageHeadData}
             <ResultsTitle date={date} />
             <EventList items={filteredEvents} />
         </Fragment>
